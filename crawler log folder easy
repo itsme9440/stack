@@ -1,0 +1,20 @@
+https://leetcode.com/problems/crawler-log-folder/
+
+solution:
+
+class Solution {
+    public int minOperations(String[] logs) {
+    	int ops = 0;
+	for (String log : logs) {
+		if (log.equals("../")) {
+			if (ops != 0)
+				ops--;
+		} else if (log.equals("./")) {
+			continue;
+		} else {
+			ops++;
+		}
+	}
+	return ops;
+    }
+}
