@@ -1,0 +1,33 @@
+https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/
+
+
+solution:
+
+
+
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int os=0;
+        int zs=0;
+        for(int i:students){
+            if(i==1)
+                os++;
+            else
+                zs++;
+        }
+        for(int i:sandwiches){
+            if(os==0&&i==1){
+                return os+zs;
+            }
+            else if(zs==0&&i==0)
+                return zs+os;
+        else if(i==1){
+            os--;
+        }
+            else
+            zs--;
+    }
+        return 0;
+        
+    }
+}
